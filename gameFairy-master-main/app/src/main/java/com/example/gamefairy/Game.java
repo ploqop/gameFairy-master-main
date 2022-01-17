@@ -2,24 +2,19 @@ package com.example.gamefairy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Locale;
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Game extends AppCompatActivity {
 
@@ -31,8 +26,8 @@ public class Game extends AppCompatActivity {
     ImageView firstHeart;
     ImageView secondHeart;
     ImageView thirdHeart;
-    long addTime = 3;
     CountDownTimer t;
+    int highScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +35,6 @@ public class Game extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         timer = findViewById(R.id.timer);
-        Intent intent1 = new Intent(this, LableWin.class);
 
         new CountDownTimer(30000, 1000) {
             @Override
@@ -53,20 +47,16 @@ public class Game extends AppCompatActivity {
 
                 timer.setText("- : -");
 
-                if(hearts < 1){
-                    finishAndRemoveTask();
-                }
-                else {
+                if (hearts >= 1) {
                     String str = "Ваш счет: " + pointsInt;
                     Toast toast = Toast.makeText(getApplicationContext(), "" + str, Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
-                    finishAndRemoveTask();
+                    CountPoints();
                 }
+                finishAndRemoveTask();
             }
         }.start();
-
-
 
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
@@ -121,6 +111,20 @@ public class Game extends AppCompatActivity {
         });
     }
 
+    void CountPoints()
+    {
+        SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
+        highScore = prefs.getInt("score", 0);
+
+        if (pointsInt > highScore) {
+            highScore = pointsInt;
+            prefs.edit().putInt("score", highScore).apply();
+            Intent intent = new Intent(this, Menu.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+
     void SelectNewFairy(Integer[] fairies, ImageView fairyToCatch)
     {
         Random random = new Random();
@@ -146,7 +150,6 @@ public class Game extends AppCompatActivity {
 
     void LoseHeart()
     {
-        Intent intent2 = new Intent(this, LableEnd.class);
         hearts--;
 
         switch (hearts) {
@@ -162,6 +165,7 @@ public class Game extends AppCompatActivity {
                 Toast toast = Toast.makeText(getApplicationContext(), "" + str, Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
+                CountPoints();
                 finishAndRemoveTask();
             }
         }

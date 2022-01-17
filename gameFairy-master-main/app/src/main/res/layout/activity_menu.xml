@@ -78,14 +78,15 @@
         app:srcCompat="@drawable/start" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/highScoreString"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
+        android:layout_marginStart="132dp"
         android:layout_marginTop="128dp"
-        android:text="Рекорд: "
+        android:text="@string/highscore"
         android:textColor="#6C0044"
-        android:textSize="20sp"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newGame" />
 
