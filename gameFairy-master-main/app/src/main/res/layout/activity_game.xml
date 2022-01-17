@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Game">
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="152dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:text="llo"
+        android:textSize="34sp"
+        android:translationZ="10dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/thirdHeart"
+        android:layout_width="72dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:translationZ="10dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/heart" />
+
+    <ImageView
+        android:id="@+id/secondHeart"
+        android:layout_width="72dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:translationZ="10dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/thirdHeart"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/heart" />
+
+    <ImageView
+        android:id="@+id/firstHeart"
+        android:layout_width="72dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:translationZ="10dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/secondHeart"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/heart" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="602dp"
+        android:layout_height="1069dp"
+        android:layout_marginTop="-150dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/forest1" />
+
+    <ImageView
+        android:id="@+id/fairyToCatch"
+        android:layout_width="114dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="-7dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timer"
+        app:srcCompat="@drawable/bloom" />
+
+    <ImageView
+        android:id="@+id/stella"
+        android:layout_width="132dp"
+        android:layout_height="194dp"
+        android:layout_marginTop="308dp"
+        android:layout_marginEnd="132dp"
+        app:layout_constraintEnd_toStartOf="@+id/tecna"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/stella" />
+
+    <ImageView
+        android:id="@+id/flora"
+        android:layout_width="132dp"
+        android:layout_height="194dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/flora" />
+
+    <ImageView
+        android:id="@+id/bloom"
+        android:layout_width="132dp"
+        android:layout_height="194dp"
+        android:layout_marginStart="136dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.672"
+        app:srcCompat="@drawable/bloom" />
+
+    <ImageView
+        android:id="@+id/musa"
+        android:layout_width="132dp"
+        android:layout_height="194dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/musa" />
+
+    <ImageView
+        android:id="@+id/tecna"
+        android:layout_width="132dp"
+        android:layout_height="194dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tecna" />
+
+    <TextView
+        android:id="@+id/points"
+        android:layout_width="81dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="28dp"
+        android:gravity="center"
+        android:shadowColor="#000000"
+        android:shadowRadius="100"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#6C0044"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="278dp"
+        android:layout_height="500dp"
+        android:layout_marginStart="-50dp"
+        android:layout_marginTop="-100dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/flo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

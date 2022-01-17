@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">gameFairy</string>
+    <string name="points">%1$d</string>
+</resources>
